@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34330.188
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeartyBaetWebApp", "HeartyBaetWebApp\HeartyBaetWebApp\HeartyBaetWebApp.csproj", "{E5FDF6BD-EEDB-4220-B5D2-D9092D2D3795}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeartyBaetWebApp.Client", "HeartyBaetWebApp\HeartyBaetWebApp.Client\HeartyBaetWebApp.Client.csproj", "{DEFE1358-A5F4-4CCB-A46D-7B8708535147}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E5FDF6BD-EEDB-4220-B5D2-D9092D2D3795}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5FDF6BD-EEDB-4220-B5D2-D9092D2D3795}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5FDF6BD-EEDB-4220-B5D2-D9092D2D3795}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5FDF6BD-EEDB-4220-B5D2-D9092D2D3795}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DEFE1358-A5F4-4CCB-A46D-7B8708535147}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DEFE1358-A5F4-4CCB-A46D-7B8708535147}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DEFE1358-A5F4-4CCB-A46D-7B8708535147}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DEFE1358-A5F4-4CCB-A46D-7B8708535147}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {469733B7-25E0-4B37-A41D-064640A6E2FE}
+	EndGlobalSection
+EndGlobal
