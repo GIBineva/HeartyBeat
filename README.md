@@ -1,2 +1,6 @@
-# HeartyBeat
-End of year project for practice activity: Heart mesurer made by hand and programemd via Arduino and C# web app. The web app is full of tips on how to keep our heart safe from risks!! &lt;3
+<h1 align = "center"> HEARTY-BEAT </h1>
+
+<p align = "center">
+    <img src = "Images/HearyBeatLogo.png" >
+</p>
+
