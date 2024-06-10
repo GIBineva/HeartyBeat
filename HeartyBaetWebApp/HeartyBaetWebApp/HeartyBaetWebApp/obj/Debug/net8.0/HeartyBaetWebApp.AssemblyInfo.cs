@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("HeartyBaetWebApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+81b00c002ad907246003829ea1d8bc6da710b109")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
 [assembly: System.Reflection.AssemblyProductAttribute("HeartyBaetWebApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("HeartyBaetWebApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

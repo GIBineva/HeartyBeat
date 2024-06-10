@@ -1,10 +1,18 @@
+using System.ComponentModel.DataAnnotations;
+using System.Net.Http;
+
 namespace HeartyBaetWebApp.Client
 {
-    // Add properties to this class and update the server and client AuthenticationStateProviders
-    // to expose more information about the authenticated user to the client.
+
     public class UserInfo
     {
-        public required string UserId { get; set; }
+        [Required, EmailAddress]
         public required string Email { get; set; }
+        [Required]
+        public required string Password { get; set; }
+        [Required, Compare(nameof(Password), ErrorMessage = "The passwords didn't match.")]
+        public required string ConfirmPassword { get; set; }
     }
 }
+
+

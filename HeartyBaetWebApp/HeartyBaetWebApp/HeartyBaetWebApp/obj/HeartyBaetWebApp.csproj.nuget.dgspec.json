@@ -45,6 +45,22 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "DustyPig.Firebase.Auth": {
+              "target": "Package",
+              "version": "[3.1.1.16, )"
+            },
+            "Firebase.Auth.Rest": {
+              "target": "Package",
+              "version": "[1.2.0, )"
+            },
+            "FirebaseAdmin": {
+              "target": "Package",
+              "version": "[3.0.0, )"
+            },
+            "FirebaseAuthentication.net": {
+              "target": "Package",
+              "version": "[4.1.0, )"
+            },
             "Microsoft.AspNetCore.Components.WebAssembly": {
               "target": "Package",
               "version": "[8.0.0, )"
@@ -142,6 +158,22 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "DustyPig.Firebase.Auth": {
+              "target": "Package",
+              "version": "[3.1.1.16, )"
+            },
+            "Firebase.Auth.Rest": {
+              "target": "Package",
+              "version": "[1.2.0, )"
+            },
+            "FirebaseAdmin": {
+              "target": "Package",
+              "version": "[3.0.0, )"
+            },
+            "FirebaseAuthentication.net": {
+              "target": "Package",
+              "version": "[4.1.0, )"
+            },
             "Microsoft.AspNetCore.Components.WebAssembly.Server": {
               "target": "Package",
               "version": "[8.0.0, )"
