@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\buildMultiTargeting\HeartyBaetWebApp.Client.props" />
-</Project>
