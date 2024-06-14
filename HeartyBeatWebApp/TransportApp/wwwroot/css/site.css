@@ -16,3 +16,9 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.center-image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
