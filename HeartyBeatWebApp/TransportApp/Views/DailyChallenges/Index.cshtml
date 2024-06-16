@@ -1,0 +1,47 @@
+﻿@{
+    ViewData["Title"] = "Daily Challenges";
+    var dailyChallenges = ViewBag.DailyChallenges as List<string>;
+}
+
+<h1>Daily Challenges</h1>
+<br />
+<hr />
+<br />
+
+<p>We have prepared 3 daily RANDOM challanges for you. </p>
+<p>Check the box whenever you have completed them! And don't </p>
+<p>forget that we can not physically check wether you have done </p>
+<p>these challanges! It's all up to your honesty and how much </p>
+<p>you value your own health! </p>
+
+<br />
+<hr />
+<br />
+
+<ul>
+    @foreach (var challenge in dailyChallenges)
+    {
+        <li>
+            <input type="checkbox" name="challenges" value="@challenge" />
+            @challenge
+        </li>
+    }
+</ul>
+
+<button type="button" onclick="completeChallenges()">Done</button>
+
+<script>
+    function completeChallenges()
+    {
+        var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+        var allChecked = Array.from(checkboxes).every(checkbox => checkbox.checked);
+
+        if (allChecked)
+        {
+            alert("Great job! You've completed your challenges for the day. Keep up the good work!");
+        } else
+        {
+            alert("Please complete all challenges before marking them as done.");
+        }
+    }
+</script>

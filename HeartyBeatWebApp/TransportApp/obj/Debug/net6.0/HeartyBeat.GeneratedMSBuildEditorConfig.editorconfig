@@ -22,8 +22,8 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/user/.githubProjects/HeartyBeatProject/HeartyBeatWebApp/TransportApp/Views/DailyChallenge/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFpbHlDaGFsbGVuZ2VcSW5kZXguY3NodG1s
+[C:/Users/user/.githubProjects/HeartyBeatProject/HeartyBeatWebApp/TransportApp/Views/DailyChallenges/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFpbHlDaGFsbGVuZ2VzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/user/.githubProjects/HeartyBeatProject/HeartyBeatWebApp/TransportApp/Views/Home/Index.cshtml]

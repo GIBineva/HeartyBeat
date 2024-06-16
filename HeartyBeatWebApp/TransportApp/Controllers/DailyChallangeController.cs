@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http;
+using Newtonsoft.Json;
 
 namespace HeartyBeatApp.Controllers
 {
@@ -35,12 +37,26 @@ namespace HeartyBeatApp.Controllers
 
         public IActionResult Index()
         {
-            // Pick 3 random challenges
-            var random = new Random();
-            var dailyChallenges = _challenges.OrderBy(x => random.Next()).Take(3).ToList();
+            var sessionKey = "DailyChallenges";
+            var dateKey = "ChallengesDate";
+            var currentDate = DateTime.Now.Date;
 
-            // Pass the challenges to the view
-            ViewBag.DailyChallenges = dailyChallenges;
+            var storedDate = HttpContext.Session.GetString(dateKey);
+            var dailyChallenges = HttpContext.Session.GetString(sessionKey);
+
+            if (storedDate == null || DateTime.Parse(storedDate) != currentDate || dailyChallenges == null)
+            {
+                var random = new Random();
+                var newDailyChallenges = _challenges.OrderBy(x => random.Next()).Take(3).ToList();
+
+                HttpContext.Session.SetString(sessionKey, JsonConvert.SerializeObject(newDailyChallenges));
+                HttpContext.Session.SetString(dateKey, currentDate.ToString());
+
+                dailyChallenges = JsonConvert.SerializeObject(newDailyChallenges);
+            }
+
+            var dailyChallengesList = JsonConvert.DeserializeObject<List<string>>(dailyChallenges);
+            ViewBag.DailyChallenges = dailyChallengesList;
 
             return View();
         }

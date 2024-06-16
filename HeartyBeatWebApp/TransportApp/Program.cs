@@ -22,9 +22,16 @@ namespace HeartyBeatApp
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             builder.Services.AddControllersWithViews();
 
+            // Add session support
+            builder.Services.AddSession(options =>
+            {
+                options.IdleTimeout = TimeSpan.FromDays(1); // Set session timeout to 1 day
+                options.Cookie.HttpOnly = true;
+                options.Cookie.IsEssential = true;
+            });
+
             var app = builder.Build();
 
-            
             if (app.Environment.IsDevelopment())
             {
                 app.UseMigrationsEndPoint();
@@ -32,7 +39,6 @@ namespace HeartyBeatApp
             else
             {
                 app.UseExceptionHandler("/Home/Error");
-                
                 app.UseHsts();
             }
 
@@ -48,6 +54,9 @@ namespace HeartyBeatApp
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}");
             app.MapRazorPages();
+
+            // Use session middleware
+            app.UseSession();
 
             app.Run();
         }
