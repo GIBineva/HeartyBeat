@@ -2,7 +2,7 @@
 
 namespace HeartyBeat.Controllers
 {
-    public class HealthyTips : Controller
+    public class HealthyTipsController : Controller
     {
         public IActionResult Index()
         {
