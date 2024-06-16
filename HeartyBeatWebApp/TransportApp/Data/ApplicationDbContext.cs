@@ -10,7 +10,6 @@ namespace HeartyBeatApp.Data
         {
         }
 
-        public DbSet<Location> Locations { get; set; }
         public DbSet<RouteInfo> Routes { get; set; }
         public DbSet<Schedule> Schedules { get; set; }
         public DbSet<Vehicle> Vehicle { get; set; }
