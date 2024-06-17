@@ -17,6 +17,10 @@
       "PackagePath": "staticwebassets\\images\\HearyBeatLogo.png"
     },
     {
+      "Id": "C:\\Users\\user\\.githubProjects\\HeartyBeatProject\\HeartyBeatWebApp\\TransportApp\\wwwroot\\js\\JavaScript.js",
+      "PackagePath": "staticwebassets\\js\\JavaScript.js"
+    },
+    {
       "Id": "C:\\Users\\user\\.githubProjects\\HeartyBeatProject\\HeartyBeatWebApp\\TransportApp\\wwwroot\\lib\\bootstrap\\LICENSE",
       "PackagePath": "staticwebassets\\lib\\bootstrap"
     },

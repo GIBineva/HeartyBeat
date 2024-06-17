@@ -36,28 +36,23 @@ namespace HeartyBeatApp.Controllers
 
         public IActionResult Index()
         {
-            var sessionKey = "DailyChallenges";
-            var dateKey = "ChallengesDate";
-            var currentDate = DateTime.Now.Date;
+            var dailyChallenges = HttpContext.Session.GetString("DailyChallenges");
 
-            var storedDate = HttpContext.Session.GetString(dateKey);
-            var dailyChallenges = HttpContext.Session.GetString(sessionKey);
-
-            if (storedDate == null || DateTime.Parse(storedDate) != currentDate || dailyChallenges == null)
+            if (string.IsNullOrEmpty(dailyChallenges))
             {
-                var random = new Random();
-                var newDailyChallenges = _challenges.OrderBy(x => random.Next()).Take(3).ToList();
-
-                HttpContext.Session.SetString(sessionKey, JsonConvert.SerializeObject(newDailyChallenges));
-                HttpContext.Session.SetString(dateKey, currentDate.ToString());
-
-                dailyChallenges = JsonConvert.SerializeObject(newDailyChallenges);
+                var randomChallenges = _challenges.OrderBy(x => Guid.NewGuid()).Take(3).ToList();
+                HttpContext.Session.SetString("DailyChallenges", string.Join(",", randomChallenges));
+                dailyChallenges = string.Join(",", randomChallenges);
             }
 
-            var dailyChallengesList = JsonConvert.DeserializeObject<List<string>>(dailyChallenges);
-            ViewBag.DailyChallenges = dailyChallengesList;
+            var selectedChallenges = dailyChallenges.Split(',').ToList();
+            return View(selectedChallenges);
+        }
 
-            return View();
+        [HttpPost]
+        public IActionResult SaveProgress([FromBody] List<string> challenges)
+        {
+            return Json(new { success = true });
         }
     }
 }

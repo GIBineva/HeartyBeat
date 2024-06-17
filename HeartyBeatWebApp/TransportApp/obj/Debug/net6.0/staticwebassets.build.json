@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "KqxBDBaBerr/7J8ltYETG8bMIQfsX8CbIjxULj1fC90=",
+  "Hash": "NARxTlAoL3Ufjg3+MlwYnmh695wJOAjIZBD6dOSHJaI=",
   "Source": "HeartyBeat",
   "BasePath": "_content/HeartyBeat",
   "Mode": "Default",
@@ -110,6 +110,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\HearyBeatLogo.png"
+    },
+    {
+      "Identity": "C:\\Users\\user\\.githubProjects\\HeartyBeatProject\\HeartyBeatWebApp\\TransportApp\\wwwroot\\js\\JavaScript.js",
+      "SourceId": "HeartyBeat",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\user\\.githubProjects\\HeartyBeatProject\\HeartyBeatWebApp\\TransportApp\\wwwroot\\",
+      "BasePath": "_content/HeartyBeat",
+      "RelativePath": "js/JavaScript.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\JavaScript.js"
     },
     {
       "Identity": "C:\\Users\\user\\.githubProjects\\HeartyBeatProject\\HeartyBeatWebApp\\TransportApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",

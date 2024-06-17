@@ -3,6 +3,12 @@
     var dailyChallenges = ViewBag.DailyChallenges as List<string>;
 }
 
+
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+</head>
+
+
 <h1>Daily Challenges</h1>
 <br />
 <hr />
@@ -18,7 +24,7 @@
 <br />
 
 <ul>
-    @foreach (var challenge in dailyChallenges)
+    @foreach (var challenge in Model)
     {
         <li>
             <input type="checkbox" name="challenges" value="@challenge" />
@@ -26,21 +32,58 @@
         </li>
     }
 </ul>
+<button type="button" id="doneButton">Done</button>
 
-<button type="button" onclick="completeChallenges()">Done</button>
-
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-    function completeChallenges()
-    {
-        var checkboxes = document.querySelectorAll('input[type="checkbox"]');
-        var allChecked = Array.from(checkboxes).every(checkbox => checkbox.checked);
+    $(document).ready(function () {
+        $('#doneButton').click(function () {
+            var checkboxes = $('input[type="checkbox"]');
+            var allChecked = true;
+            var challenges = [];
 
-        if (allChecked)
-        {
-            alert("Great job! You've completed your challenges for the day. Keep up the good work!");
-        } else
-        {
-            alert("Please complete all challenges before marking them as done.");
-        }
-    }
+            checkboxes.each(function () {
+                if (!this.checked) {
+                    allChecked = false;
+                } else {
+                    challenges.push(this.value);
+                }
+            });
+
+            if (allChecked) {
+                $.ajax({
+                    url: '/DailyChallenges/SaveProgress',
+                    type: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify(challenges),
+                    success: function (response) {
+                        if (response.success) {
+                            Swal.fire({
+                                title: 'Great job!',
+                                text: "You've completed your challenges for the day. Keep up the good work!",
+                                imageUrl: 'https://example.com/your-motivational-image.jpg',
+                                imageWidth: 400,
+                                imageHeight: 200,
+                                imageAlt: 'Motivational Image',
+                            });
+                        }
+                    },
+                    error: function () {
+                        Swal.fire({
+                            title: 'Error',
+                            text: 'There was an error saving your progress. Please try again.',
+                            icon: 'error',
+                        });
+                    }
+                });
+            } else {
+                Swal.fire({
+                    title: 'Incomplete Challenges',
+                    text: 'Please complete all challenges before marking them as done.',
+                    icon: 'warning',
+                });
+            }
+        });
+    });
 </script>
