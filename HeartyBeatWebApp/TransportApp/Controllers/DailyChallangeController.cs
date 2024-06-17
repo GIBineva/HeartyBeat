@@ -34,9 +34,19 @@ namespace HeartyBeatApp.Controllers
             "Take the scenic route home - explore your hometown or go trough your fave route!!"
         };
 
+        private readonly List<(string Message, string ImageUrl)> _rewards = new List<(string, string)>
+        {
+            ("Great job! Keep up the good work!", "https://example.com/image1.jpg"), //cat gacha place holder 1
+            ("You did it! Stay strong!", "https://example.com/image2.jpg"), //cat gacha place holder 2
+            ("Fantastic effort! Keep going!", "https://example.com/image3.jpg"), //cat gacha place holder 3
+            ("Awesome! You're doing great!", "https://example.com/image4.jpg"), //cat gacha place holder 4
+            ("Excellent! Keep pushing forward!", "https://example.com/image5.jpg") //cat gacha place holder 5
+        };
+
         public IActionResult Index()
         {
             var dailyChallenges = HttpContext.Session.GetString("DailyChallenges");
+            var rewardClaimed = HttpContext.Session.GetString("RewardClaimed");
 
             if (string.IsNullOrEmpty(dailyChallenges))
             {
@@ -46,13 +56,38 @@ namespace HeartyBeatApp.Controllers
             }
 
             var selectedChallenges = dailyChallenges.Split(',').ToList();
+
+            if (rewardClaimed == "true")
+            {
+                return View("Completed");
+            }
+
             return View(selectedChallenges);
         }
 
         [HttpPost]
         public IActionResult SaveProgress([FromBody] List<string> challenges)
         {
-            return Json(new { success = true });
+            var randomReward = _rewards.OrderBy(x => Guid.NewGuid()).First();
+            HttpContext.Session.SetString("RewardMessage", randomReward.Message);
+            HttpContext.Session.SetString("RewardImageUrl", randomReward.ImageUrl);
+            HttpContext.Session.SetString("RewardClaimed", "true");
+
+            return Json(new { success = true, message = randomReward.Message, imageUrl = randomReward.ImageUrl });
+        }
+
+        [HttpGet]
+        public IActionResult GetReward()
+        {
+            var rewardMessage = HttpContext.Session.GetString("RewardMessage");
+            var rewardImageUrl = HttpContext.Session.GetString("RewardImageUrl");
+
+            if (!string.IsNullOrEmpty(rewardMessage) && !string.IsNullOrEmpty(rewardImageUrl))
+            {
+                return Json(new { success = true, message = rewardMessage, imageUrl = rewardImageUrl });
+            }
+
+            return Json(new { success = false });
         }
     }
 }

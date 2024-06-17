@@ -22,10 +22,9 @@ namespace HeartyBeatApp
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             builder.Services.AddControllersWithViews();
 
-            // Add session support
             builder.Services.AddSession(options =>
             {
-                options.IdleTimeout = TimeSpan.FromDays(1); // Set session timeout to 1 day
+                options.IdleTimeout = TimeSpan.FromDays(1);
                 options.Cookie.HttpOnly = true;
                 options.Cookie.IsEssential = true;
             });
@@ -55,7 +54,6 @@ namespace HeartyBeatApp
                 pattern: "{controller=Home}/{action=Index}/{id?}");
             app.MapRazorPages();
 
-            // Use session middleware
             app.UseSession();
 
             app.Run();

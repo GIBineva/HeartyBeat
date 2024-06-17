@@ -38,6 +38,20 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
     $(document).ready(function () {
+        // Check if the reward has already been claimed
+        $.get('/DailyChallenges/GetReward', function (response) {
+            if (response.success) {
+                Swal.fire({
+                    title: 'Congratulations!',
+                    text: response.message,
+                    imageUrl: response.imageUrl,
+                    imageWidth: 400,
+                    imageHeight: 200,
+                    imageAlt: 'Motivational Image',
+                });
+            }
+        });
+
         $('#doneButton').click(function () {
             var checkboxes = $('input[type="checkbox"]');
             var allChecked = true;
@@ -51,8 +65,7 @@
                 }
             });
 
-            if (allChecked)
-            {
+            if (allChecked) {
                 $.ajax({
                     url: '/DailyChallenges/SaveProgress',
                     type: 'POST',
@@ -61,12 +74,14 @@
                     success: function (response) {
                         if (response.success) {
                             Swal.fire({
-                                title: 'Great job!',
-                                text: "You've completed your challenges for the day. Keep up the good work!",
-                                imageUrl: 'https://example.com/your-motivational-image.jpg',
+                                title: 'Congratulations!',
+                                text: response.message,
+                                imageUrl: response.imageUrl,
                                 imageWidth: 400,
                                 imageHeight: 200,
                                 imageAlt: 'Motivational Image',
+                            }).then(function () {
+                                location.reload();
                             });
                         }
                     },
