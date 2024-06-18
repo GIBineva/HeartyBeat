@@ -1,9 +1,9 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Http;
-using Newtonsoft.Json;
+using Microsoft.AspNetCore.Hosting;
 
 namespace HeartyBeatApp.Controllers
 {
@@ -12,36 +12,42 @@ namespace HeartyBeatApp.Controllers
         private readonly List<string> _challenges = new List<string>
         {
             "Include fiber into your diet - Beans and Fruits and Oatmeal and Popcorn are foods full of fiber <3",
-            "Make time for breakfast - The first meal for the day than can lead to positivity trough the day!",
+            "Make time for breakfast - The first meal for the day than can lead to positivity throughout the day!",
             "Eat fish - lowers blood pressure and help reduce the risk of a heart attack or stroke!!",
             "Eat nuts - good sources of protein healthy fats fibres vitamins and minerals!!",
             "Limit your salt intake - can cause high blood pressure!!",
             "Reduce your saturated fat intake - too much saturated fat can cause cholesterol to build up in your arteries.",
             "Drink tea - May improve blood pressure and has so much more benefits",
-            "Eat dark chocolate - as tasty as milk chocolate but ttimes more healthy <3",
+            "Eat dark chocolate - as tasty as milk chocolate but times more healthy <3",
             "Move your body throughout the day - WREK IT GIRL!!",
-            "Practice yoga - all you need is a yoga mat and an youtube video ",
-            "Try strength training - helps with stress and you can benefit from the results!! ",
+            "Practice yoga - all you need is a yoga mat and a YouTube video",
+            "Try strength training - helps with stress and you can benefit from the results!!",
             "Try interval training - burns calories and reduces blood pressure",
             "Try dancing - fun way of working out!!",
             "Go for a walk - a nice way to clear your mind from stress",
-            "Take the stairs - whoops the lift is suddently broken.. wonder who did that...",
+            "Take the stairs - whoops the lift is suddenly broken.. wonder who did that...",
             "Use housework as exercise - clean house and happy body <3",
-            "Be a kid - pfft who said this was for kids and enjoy your life!! ",
+            "Be a kid - pfft who said this was for kids and enjoy your life!!",
             "Engage in hobbies - a nice way to spend some me time",
-            "Laugh out loud - who cares if people hear you? There are 5 billion pple on earth",
+            "Laugh out loud - who cares if people hear you? There are 5 billion people on earth",
             "Manage your stress - there are so many ways of that (breathing exercises and so much more)",
-            "Take the scenic route home - explore your hometown or go trough your fave route!!"
+            "Take the scenic route home - explore your hometown or go through your fave route!!"
         };
 
-        private readonly List<(string Message, string ImageUrl)> _rewards = new List<(string, string)>
+        private readonly List<(string Message, string ImageUrl)> _rewards;
+
+        public DailyChallengesController()
         {
-            ("Great job! Keep up the good work!", "https://example.com/image1.jpg"), //cat gacha place holder 1
-            ("You did it! Stay strong!", "https://example.com/image2.jpg"), //cat gacha place holder 2
-            ("Fantastic effort! Keep going!", "https://example.com/image3.jpg"), //cat gacha place holder 3
-            ("Awesome! You're doing great!", "https://example.com/image4.jpg"), //cat gacha place holder 4
-            ("Excellent! Keep pushing forward!", "https://example.com/image5.jpg") //cat gacha place holder 5
-        };
+            // Initialize the _rewards list without URLs here
+            _rewards = new List<(string, string)>
+            {
+                ("Great job! Keep up the good work!", "/images/HearyBeatLogo.png"), // cat gacha place holder 1
+                ("You did it! Stay strong!", "/images/HeartCat.jpg"), // cat gacha place holder 2
+                ("Fantastic effort! Keep going!", "/images/HeartCat.jpg"), // cat gacha place holder 3
+                ("Awesome! You're doing great!", "/images/HeartCat.jpg"), // cat gacha place holder 4
+                ("Excellent! Keep pushing forward!", "/images/HeartCat.jpg") // cat gacha place holder 5
+            };
+        }
 
         public IActionResult Index()
         {
@@ -82,12 +88,13 @@ namespace HeartyBeatApp.Controllers
         [HttpPost]
         public IActionResult SaveProgress([FromBody] List<string> challenges)
         {
+            var baseUrl = $"{Request.Scheme}://{Request.Host}"; // Move base URL construction here
             var randomReward = _rewards.OrderBy(x => Guid.NewGuid()).First();
             HttpContext.Session.SetString("RewardMessage", randomReward.Message);
-            HttpContext.Session.SetString("RewardImageUrl", randomReward.ImageUrl);
+            HttpContext.Session.SetString("RewardImageUrl", baseUrl + randomReward.ImageUrl);
             HttpContext.Session.SetString("RewardClaimed", "true");
 
-            return Json(new { success = true, message = randomReward.Message, imageUrl = randomReward.ImageUrl });
+            return Json(new { success = true, message = randomReward.Message, imageUrl = baseUrl + randomReward.ImageUrl });
         }
 
         [HttpGet]

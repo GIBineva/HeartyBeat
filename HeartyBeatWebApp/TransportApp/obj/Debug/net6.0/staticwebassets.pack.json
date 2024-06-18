@@ -13,6 +13,10 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\user\\.githubProjects\\HeartyBeatProject\\HeartyBeatWebApp\\TransportApp\\wwwroot\\images\\HeartCat.jpg",
+      "PackagePath": "staticwebassets\\images\\HeartCat.jpg"
+    },
+    {
       "Id": "C:\\Users\\user\\.githubProjects\\HeartyBeatProject\\HeartyBeatWebApp\\TransportApp\\wwwroot\\images\\HearyBeatLogo.png",
       "PackagePath": "staticwebassets\\images\\HearyBeatLogo.png"
     },

@@ -66,6 +66,7 @@
             });
 
             if (allChecked) {
+                // Submit the completed challenges via AJAX
                 $.ajax({
                     url: '/DailyChallenges/SaveProgress',
                     type: 'POST',
