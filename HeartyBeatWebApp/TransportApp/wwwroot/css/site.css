@@ -1,27 +1,185 @@
-html {
-  font-size: 14px;
+@import url('https://fonts.googleapis.com/css2?family=Modak&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+
+/* ---------------------------------------------------- NAV BAR CSS -----------------------------------------------------*/
+
+.navbar {
+    background: linear-gradient(10deg, #e194a7, #f2aebd);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-family: 'Roboto';
+    align-items: center;
 }
 
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
+    .navbar-brand
+    {
+        color: #fff;
+        font-size: 1.5em;
+    }
 
-html {
-  position: relative;
-  min-height: 100%;
-}
+    .navbar-nav
+    {
+        align-items: center;
+    }
 
-body {
-  margin-bottom: 60px;
-}
+    .navbar-nav .nav-item
+    {
+        display: flex;
+        align-items: center;
+    }
 
-.center-image {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
+    .navbar-nav .nav-link
+    {
+        color: #fff;
+        margin-right: 1rem;
+        transition: color 0.3s ease, transform 0.3s ease;
+        font-weight: normal;
+        font-style: normal;
+        display: flex;
+        align-items: center;
+    }
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" >
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11" > </script >
+    .navbar-nav .nav-link:hover
+    {
+        color: #ffcccb;
+        transform: scale(1.1);
+    }
+
+    .navbar-nav .nav-link.active
+    {
+        color: #ffcccb;
+        text-shadow: 0 0 5px rgba(255, 255, 255, 0.7);
+    }
+
+    .navbar-nav .nav-item img
+    {
+        filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.5));
+    }
+
+    .navbar-toggler
+    {
+        border: none;
+    }
+
+    .navbar-toggler-icon
+    {
+        background-image: url("data:image/svg+xml;charset=UTF8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%288, 8, 8, 0.5%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+    }
+
+    .container-fluid
+    {
+        padding: 0 2rem;
+        display: flex;
+        align-items: center;
+    }
+
+    .partial-login
+    {
+        color: #fff;
+        margin-left: 1rem;
+    }
+
+/* ---------------------------------------------------- HOME CSS -----------------------------------------------------*/
+
+
+    body
+    {
+        background: #f8f9fa;
+        margin: 0;
+        padding: 0;
+        color: #333;
+    }
+
+    .home-page
+    {
+        margin-top: 50px;
+        padding: 20px;
+    }
+
+    .welcome-heading
+    {
+        font-family: 'Modak', cursive;
+        font-size: 3em;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        margin-bottom: 20px;
+    }
+
+    .intro-text {
+        font-size: 1.2em;
+        margin: 20px 0;
+    }
+    .center-image
+    {
+        display: block;
+        margin: 0 auto;
+        height: 200px;
+        width: auto;
+        border-radius: 10px;
+    }
+
+    .features-section
+    {
+        margin: 40px 0;
+    }
+
+    .section-title
+    {
+        font-size: 2em;
+        color: #e194a7;
+        margin-bottom: 20px;
+    }
+
+    .features-container
+    {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .feature-item
+    {
+        position: relative;
+        background: #fff;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 20px;
+        margin: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        width: 200px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+        .feature-item h3 {
+            font-size: 1.5em;
+            color: #e194a7;
+            margin-bottom: 10px;
+        }
+
+    .feature-info
+    {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: #fff;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        z-index: 10;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .feature-item:hover .feature-info
+    {
+        display: block;
+        opacity: 1;
+    }
+
+    .feature-item:hover
+    {
+        transform: scale(1.05);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    }

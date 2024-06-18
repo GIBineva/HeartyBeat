@@ -32,14 +32,14 @@ you have 24 HR to complete them! Don't rush and enjoy your life ♡ We love you 
         </li>
     }
 </ul>
-<button type="button" id="doneButton">Done</button>
+<button type="button" id="doneButton">Get Reward!!</button>
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
     $(document).ready(function ()
     {
-        // Check if the reward has already been claimed
+        // Checks if the reward is already claimed
         $.get('/DailyChallenges/GetReward', function (response)
         {
             if (response.success)
