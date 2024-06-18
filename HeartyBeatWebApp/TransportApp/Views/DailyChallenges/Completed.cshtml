@@ -2,28 +2,92 @@
     ViewData["Title"] = "Daily Challenges Completed";
 }
 
-<h1>Challenges Completed</h1>
-<p>All challenges for today have been completed. Well done!</p>
-<p>New challenges will be available in:</p>
-<div id="countdown"></div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Challenges Completed</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
 
-<script>
-    function updateCountdown()
-    {
-        var now = new Date();
-        var nextRefresh = new Date();
-        nextRefresh.setHours(24, 0, 0, 0);
+        h1 {
+            color: #333;
+            margin-top: 50px;
+        }
 
-        var timeDifference = (nextRefresh - now) / 1000;
+        p {
+            color: #555;
+        }
 
-        var hours = Math.floor(timeDifference / 3600);
-        var minutes = Math.floor((timeDifference % 3600) / 60);
-        var seconds = Math.floor(timeDifference % 60);
+        #countdown {
+            display: inline-block;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            font-size: 2em;
+            color: #333;
+            margin-top: 20px;
+        }
 
-        document.getElementById("countdown").innerHTML =
-            hours + "h " + minutes + "m " + seconds + "s ";
+        .time-segment {
+            display: inline-block;
+            min-width: 60px;
+        }
 
-        setTimeout(updateCountdown, 1000);
-    }
-    updateCountdown();
-</script>
+        .time-segment span {
+            display: block;
+            font-size: 0.5em;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+    <h1>Challenges Completed</h1>
+    <p>All challenges for today have been completed. Well done!</p>
+    <p>New challenges will be available in:</p>
+    <div id="countdown">
+        <div class="time-segment">
+            <div id="hours"></div>
+            <span>Hours</span>
+        </div>
+        <div class="time-segment">
+            <div id="minutes"></div>
+            <span>Minutes</span>
+        </div>
+        <div class="time-segment">
+            <div id="seconds"></div>
+            <span>Seconds</span>
+        </div>
+    </div>
+
+    <script>
+        function updateCountdown() {
+            var now = new Date();
+            var nextRefresh = new Date();
+            nextRefresh.setHours(24, 0, 0, 0);
+
+            var timeDifference = (nextRefresh - now) / 1000;
+
+            var hours = Math.floor(timeDifference / 3600);
+            var minutes = Math.floor((timeDifference % 3600) / 60);
+            var seconds = Math.floor(timeDifference % 60);
+
+            document.getElementById("hours").innerHTML = hours;
+            document.getElementById("minutes").innerHTML = minutes;
+            document.getElementById("seconds").innerHTML = seconds;
+
+            setTimeout(updateCountdown, 1000);
+        }
+        updateCountdown();
+    </script>
+</body>
+</html>

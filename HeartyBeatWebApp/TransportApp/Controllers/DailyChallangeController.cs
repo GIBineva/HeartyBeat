@@ -38,7 +38,6 @@ namespace HeartyBeatApp.Controllers
 
         public DailyChallengesController()
         {
-            // Initialize the _rewards list without URLs here
             _rewards = new List<(string, string)>
             {
                 ("Great job! Keep up the good work!", "/images/HearyBeatLogo.png"), // cat gacha place holder 1
