@@ -1,54 +1,121 @@
-﻿@{
-    ViewData["Title"] = "Privacy Policy";
-}
-<h1>@ViewData["Title"]</h1>
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #e194a7;
+        }
+        p {
+            margin: 10px 0;
+        }
+        hr {
+            border: 0;
+            height: 1px;
+            background: #ddd;
+            margin: 20px 0;
+        }
+        .intro p {
+            font-size: 1.2em;
+            color: #555;
+        }
+        .section-title {
+            font-size: 1.4em;
+            color: #7489c4;
+            margin-top: 20px;
+        }
+        ul {
+            margin: 10px 0;
+            padding: 0 20px;
+        }
+        ul li {
+            margin: 5px 0;
+        }
+        .contact-info {
+            font-size: 1.1em;
+            color: #e194a7;
+            margin-top: 20px;
+        }
+        .highlight {
+            color: #e194a7;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
 
-<br />
-<p>ᯓᡣ𐭩 Be respectful to others. Everybody makes their own progress.</p>
-<p>ᯓᡣ𐭩 Do not give up on your goals of healthy life!</p>
-<p>ᯓᡣ𐭩 Creators speaking here: We love you all!! <33</p>
-<p>- Geri and Krisi! </p>
-<br />
-<hr />
-<br />
-<p>
-    Welcome to HeartyBeat! :3. We are committed to protecting your personal information and your right to privacy.<br />
-    This Privacy Policy explains how we collect, use and protect your information when you visit our<br />
-    website [your website URL], use our services, or engage with us in any other way.<br />
-    <br />
-    <br />
-    Information We Collect<br />
-    Personal Data:<br />
-    Contact Information: Name, email address.<br />
-    Health Information: Your pulse tracks, wight and height.<br />
-    Usage Data: Information on how you use our website, services, and interact with our content.<br />
-    <br />
-    <br />
-    Non-Personal Data:<br />
-    Technical Data: IP address. <br />
-    <br />
-    <br />
-    We use the information we collect in the following ways:<br />
+<div class="container">
+    <h1>@ViewData["Title"]</h1>
 
-    We keep it a secret!: The only place your informtation will be written down is in the servers database.<br />
-    For Research: To conduct research and analysis.<br />
-    <br />
-    <br />
+    <div class="intro">
+        <p>ᯓᡣ𐭩 Be respectful to others. Everybody makes their own progress.</p>
+        <p>ᯓᡣ𐭩 Do not give up on your goals of a healthy life!</p>
+        <p>ᯓᡣ𐭩 Creators speaking here: We love you all!! <33</p>
+        <p>- Geri and Krisi!</p>
+    </div>
+    
+    <hr />
 
-    Your Rights<br />
-    You have the right to:<br />
+    <p>
+        Welcome to <span class="highlight">HeartyBeat</span>! :3 We are committed to protecting your personal information and your right to privacy.
+        This Privacy Policy explains how we collect, use, and protect your information when you visit our
+        website [your website URL], use our services, or engage with us in any other way.
+    </p>
 
-    Access Your Information: Request access to your personal data.<br />
-    Correct Your Information: Request corrections to any inaccuracies in your personal data.<br />
-    Delete Your Information: Request deletion of your personal data, subject to certain exceptions.<br />
-    <br />
-    <br />
-    Cookies and Tracking Technologies<br />
-    We use cookies and similar tracking technologies to track activity on our website and hold certain information. You can instruct your browser to refuse all cookies or to indicate when a cookie is being sent. However, if you do not accept cookies, you may not be able to use some portions of our site.<br />
-    <br />
-    <br />
-    Contact Us<br />
-    If you have any questions about this Privacy Policy, please contact us at:<br />
-    <br />
-    Email: heartybeatassistant@gmail.com
-</p>
+    <div class="section-title">Information We Collect</div>
+    <p><span class="highlight">Personal Data:</span></p>
+    <ul>
+        <li>Contact Information: Name, email address.</li>
+        <li>Health Information: Your pulse tracks, weight, and height.</li>
+        <li>Usage Data: Information on how you use our website, services, and interact with our content.</li>
+    </ul>
+
+    <p><span class="highlight">Non-Personal Data:</span></p>
+    <ul>
+        <li>Technical Data: IP address.</li>
+    </ul>
+
+    <div class="section-title">How We Use Your Information</div>
+    <ul>
+        <li><span class="highlight">We keep it a secret!</span> The only place your information will be written down is in the server's database.</li>
+        <li><span class="highlight">For Research:</span> To conduct research and analysis.</li>
+    </ul>
+
+    <div class="section-title">Your Rights</div>
+    <ul>
+        <li><span class="highlight">Access Your Information:</span> Request access to your personal data.</li>
+        <li><span class="highlight">Correct Your Information:</span> Request corrections to any inaccuracies in your personal data.</li>
+        <li><span class="highlight">Delete Your Information:</span> Request deletion of your personal data, subject to certain exceptions.</li>
+    </ul>
+
+    <div class="section-title">Cookies and Tracking Technologies</div>
+    <p>
+        We use cookies and similar tracking technologies to track activity on our website and hold certain information. You can instruct your browser to refuse all cookies or to indicate when a cookie is being sent. However, if you do not accept cookies, you may not be able to use some portions of our site.
+    </p>
+
+    <div class="contact-info">
+        <p>If you have any questions about this Privacy Policy, please contact us at:</p>
+        <p>Email: heartybeatassistant@gmail.com</p>
+    </div>
+</div>
+
+</body>
+</html>
