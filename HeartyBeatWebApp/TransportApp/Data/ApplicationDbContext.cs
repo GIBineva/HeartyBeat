@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using HeartyBeat.Data;
 
 namespace HeartyBeatApp.Data
 {
@@ -10,8 +11,6 @@ namespace HeartyBeatApp.Data
         {
         }
 
-        public DbSet<RouteInfo> Routes { get; set; }
-        public DbSet<Schedule> Schedules { get; set; }
-        public DbSet<Vehicle> Vehicle { get; set; }
+        public DbSet<Tracker>? Tracker { get; set; }
     }
 }

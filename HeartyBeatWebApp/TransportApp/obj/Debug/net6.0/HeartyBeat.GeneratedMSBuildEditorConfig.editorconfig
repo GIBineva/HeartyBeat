@@ -54,8 +54,24 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/user/.githubProjects/HeartyBeatProject/HeartyBeatWebApp/TransportApp/Views/Tracker/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhY2tlclxJbmRleC5jc2h0bWw=
+[C:/Users/user/.githubProjects/HeartyBeatProject/HeartyBeatWebApp/TransportApp/Views/Trackers/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhY2tlcnNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/user/.githubProjects/HeartyBeatProject/HeartyBeatWebApp/TransportApp/Views/Trackers/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhY2tlcnNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/user/.githubProjects/HeartyBeatProject/HeartyBeatWebApp/TransportApp/Views/Trackers/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhY2tlcnNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/user/.githubProjects/HeartyBeatProject/HeartyBeatWebApp/TransportApp/Views/Trackers/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhY2tlcnNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/user/.githubProjects/HeartyBeatProject/HeartyBeatWebApp/TransportApp/Views/Trackers/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhY2tlcnNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/user/.githubProjects/HeartyBeatProject/HeartyBeatWebApp/TransportApp/Views/_ViewImports.cshtml]
