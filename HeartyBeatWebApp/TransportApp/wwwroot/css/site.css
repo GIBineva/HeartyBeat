@@ -96,13 +96,12 @@
         padding: 20px;
     }
 
-    .welcome-heading
-    {
-        font-family: 'Modak', cursive;
-        font-size: 3em;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-        margin-bottom: 20px;
-    }
+.welcome-heading {
+    font-family: 'Modak';
+    font-size: 3em;
+    color: #e194a7;
+    margin-bottom: 20px;
+}
 
     .intro-text {
         font-size: 1.2em;
