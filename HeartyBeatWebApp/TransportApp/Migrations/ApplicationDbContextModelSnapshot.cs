@@ -22,7 +22,7 @@ namespace HeartyBeat.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("HeartyBeat.Data.HealthyTIpsPersonal", b =>
+            modelBuilder.Entity("HeartyBeat.Data.AddYourTips", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -34,6 +34,10 @@ namespace HeartyBeat.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("tipFromUser")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("username")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
