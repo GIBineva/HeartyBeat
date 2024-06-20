@@ -182,3 +182,35 @@
         transform: scale(1.05);
         box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
     }
+
+
+/*----------------------------------------------Tracker CSS ----------------------------------------*/
+
+.btn-custom-create {
+    background-color: #e194a7;
+    color: white;
+}
+
+.btn-custom-edit {
+    background-color: #c78998;
+    color: white;
+}
+
+.btn-custom-details {
+    background-color: #c789ac;
+    color: white;
+}
+
+.btn-custom-delete {
+    background-color: #c789bd;
+    color: white;
+}
+
+    /* Optional: Add hover effects */
+    .btn-custom-create:hover,
+    .btn-custom-edit:hover,
+    .btn-custom-details:hover,
+    .btn-custom-delete:hover
+    {
+        opacity: 0.8;
+    }
