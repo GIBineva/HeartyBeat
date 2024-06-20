@@ -1,9 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Http;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http;
+using Newtonsoft.Json;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Hosting;
+
 
 namespace HeartyBeatApp.Controllers
 {
@@ -36,15 +39,15 @@ namespace HeartyBeatApp.Controllers
 
         private readonly List<(string Message, string ImageUrl)> _rewards;
 
-        public DailyChallengesController()
+        public DailyChallengesController(IWebHostEnvironment webHostEnvironment)
         {
-            _rewards = new List<(string, string)>
+            _rewards = new List<(string Message, string ImageUrl)>
             {
-                ("Great job! Keep up the good work!", "/images/HearyBeatLogo.png"), // cat gacha place holder 1
-                ("You did it! Stay strong!", "/images/HeartCat.jpg"), // cat gacha place holder 2
-                ("Fantastic effort! Keep going!", "/images/HeartCat.jpg"), // cat gacha place holder 3
-                ("Awesome! You're doing great!", "/images/HeartCat.jpg"), // cat gacha place holder 4
-                ("Excellent! Keep pushing forward!", "/images/HeartCat.jpg") // cat gacha place holder 5
+                ("Great job! Keep up the good work!", "/images/HeartCat.jpg"), //cat gacha placeholder 1
+                ("You did it! Stay strong!", "/images/HeartCat.jpg"), //cat gacha placeholder 2
+                ("Fantastic effort! Keep going!", "/images/HeartCat.jpg"), //cat gacha placeholder 3 a
+                ("Awesome! You're doing great!", "/images/HeartCat.jpg"), //cat gacha placeholder 4
+                ("Excellent! Keep pushing forward!", "/images/HeartCat.jpg") //cat gacha placeholder 5
             };
         }
 
@@ -81,19 +84,19 @@ namespace HeartyBeatApp.Controllers
                 return View("Completed");
             }
 
+            ViewBag.DailyChallenges = selectedChallenges;
             return View(selectedChallenges);
         }
 
         [HttpPost]
         public IActionResult SaveProgress([FromBody] List<string> challenges)
         {
-            var baseUrl = $"{Request.Scheme}://{Request.Host}"; // Move base URL construction here
             var randomReward = _rewards.OrderBy(x => Guid.NewGuid()).First();
             HttpContext.Session.SetString("RewardMessage", randomReward.Message);
-            HttpContext.Session.SetString("RewardImageUrl", baseUrl + randomReward.ImageUrl);
+            HttpContext.Session.SetString("RewardImageUrl", randomReward.ImageUrl);
             HttpContext.Session.SetString("RewardClaimed", "true");
 
-            return Json(new { success = true, message = randomReward.Message, imageUrl = baseUrl + randomReward.ImageUrl });
+            return Json(new { success = true, message = randomReward.Message, imageUrl = Url.Content($"~{randomReward.ImageUrl}") });
         }
 
         [HttpGet]
@@ -104,7 +107,7 @@ namespace HeartyBeatApp.Controllers
 
             if (!string.IsNullOrEmpty(rewardMessage) && !string.IsNullOrEmpty(rewardImageUrl))
             {
-                return Json(new { success = true, message = rewardMessage, imageUrl = rewardImageUrl });
+                return Json(new { success = true, message = rewardMessage, imageUrl = Url.Content($"~{rewardImageUrl}") });
             }
 
             return Json(new { success = false });
