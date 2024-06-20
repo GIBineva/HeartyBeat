@@ -4,38 +4,63 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Share your tips with other users!</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create" class="btn-custom-create">Create New</a>
 </p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.tipFromUser)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.username)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.tipFromUser)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.username)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+
+<style>
+    .chat-container {
+        max-width: 600px;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        background-color: #f9f9f9;
+        overflow-y: auto;
+        height: 500px;
+    }
+
+    .chat-message {
+        padding: 10px;
+        margin: 10px 0;
+        border-radius: 10px;
+        background-color: #ffd9e7;
+    }
+
+        .chat-message .username {
+            font-weight: bold;
+        }
+
+        .chat-message .tip {
+            margin-top: 5px;
+        }
+
+    .btn-custom-create, .btn-custom-edit, .btn-custom-details, .btn-custom-delete {
+        display: inline-block;
+        padding: 8px 16px;
+        margin: 5px 0;
+        border: none;
+        border-radius: 5px;
+        text-decoration: none;
+        color: #fff;
+    }
+
+    
+</style>
+
+<div class="chat-container">
+    @foreach (var item in Model)
+    {
+        <div class="chat-message">
+            <div class="username">@Html.DisplayFor(modelItem => item.username)</div>
+            <div class="tip">@Html.DisplayFor(modelItem => item.tipFromUser)</div>
+            <div>
+                <a asp-action="Edit" asp-route-id="@item.Id" class="btn-custom-edit">Edit</a>
+                <a asp-action="Details" asp-route-id="@item.Id" class="btn-custom-details">Details</a>
+                <a asp-action="Delete" asp-route-id="@item.Id" class="btn-custom-delete">Delete</a>
+            </div>
+        </div>
+    }
+</div>
