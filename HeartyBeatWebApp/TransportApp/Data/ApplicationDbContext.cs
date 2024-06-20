@@ -12,5 +12,7 @@ namespace HeartyBeatApp.Data
         }
 
         public DbSet<Tracker>? Tracker { get; set; }
+
+        public DbSet<HeartyBeat.Data.HealthyTIpsPersonal>? HealthyTIpsPersonal { get; set; }
     }
 }

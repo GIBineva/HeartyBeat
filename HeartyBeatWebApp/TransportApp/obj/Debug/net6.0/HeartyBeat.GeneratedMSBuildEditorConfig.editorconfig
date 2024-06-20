@@ -30,6 +30,26 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFpbHlDaGFsbGVuZ2VzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/user/.githubProjects/HeartyBeatProject/HeartyBeatWebApp/TransportApp/Views/HealthyTIpsPersonals/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSGVhbHRoeVRJcHNQZXJzb25hbHNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/user/.githubProjects/HeartyBeatProject/HeartyBeatWebApp/TransportApp/Views/HealthyTIpsPersonals/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSGVhbHRoeVRJcHNQZXJzb25hbHNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/user/.githubProjects/HeartyBeatProject/HeartyBeatWebApp/TransportApp/Views/HealthyTIpsPersonals/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSGVhbHRoeVRJcHNQZXJzb25hbHNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/user/.githubProjects/HeartyBeatProject/HeartyBeatWebApp/TransportApp/Views/HealthyTIpsPersonals/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSGVhbHRoeVRJcHNQZXJzb25hbHNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/user/.githubProjects/HeartyBeatProject/HeartyBeatWebApp/TransportApp/Views/HealthyTIpsPersonals/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSGVhbHRoeVRJcHNQZXJzb25hbHNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/user/.githubProjects/HeartyBeatProject/HeartyBeatWebApp/TransportApp/Views/HealthyTips/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSGVhbHRoeVRpcHNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
