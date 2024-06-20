@@ -186,25 +186,36 @@
 
 /*----------------------------------------------Tracker CSS ----------------------------------------*/
 
-.btn-custom-create {
+.btn-custom-create
+{
     background-color: #e194a7;
     color: white;
 }
 
-.btn-custom-edit {
+.btn-custom-edit
+{
     background-color: #c78998;
     color: white;
 }
 
-.btn-custom-details {
+.btn-custom-details
+{
     background-color: #c789ac;
     color: white;
 }
 
-.btn-custom-delete {
+.btn-custom-delete
+{
     background-color: #c789bd;
     color: white;
 }
+
+.btn-custom-back
+{
+    background-color: #d18497;
+    color: white;
+}
+
 
     /* Optional: Add hover effects */
     .btn-custom-create:hover,
