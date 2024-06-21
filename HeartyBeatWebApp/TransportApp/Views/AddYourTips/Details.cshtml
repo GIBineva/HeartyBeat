@@ -4,27 +4,45 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+<h1>Tip Details</h1>
+
+<div class="details-container">
+    <div class="detail-item">
+        <strong>Username:</strong>
+        <p>@Html.DisplayFor(model => model.username)</p>
+    </div>
+    <div class="detail-item">
+        <strong>Tip:</strong>
+        <p>@Html.DisplayFor(model => model.tipFromUser)</p>
+    </div>
+</div>
+<br />
+<br />
 
 <div>
-    <h4>AddYourTips</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.tipFromUser)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.tipFromUser)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.username)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.username)
-        </dd>
-    </dl>
+    <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-custom-create">Edit</a>
+    <a asp-action="Index" class="btn btn-custom-back ml-2">Back to List</a>
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
+
+<style>
+    .details-container {
+        max-width: 600px;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        background-color: #f9f9f9;
+    }
+
+    .detail-item {
+        margin-bottom: 15px;
+    }
+
+        .detail-item p {
+            margin: 0;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #fff;
+        }
+</style>
