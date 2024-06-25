@@ -54,8 +54,8 @@
     @foreach (var item in Model)
     {
         <div class="chat-message">
-            <div class="username">@Html.DisplayFor(modelItem => item.username)</div>
-            <div class="tip">@Html.DisplayFor(modelItem => item.tipFromUser)</div>
+            <div class="username">@Html.DisplayFor(modelItem => item.Username)</div>
+            <div class="tip">@Html.DisplayFor(modelItem => item.TipFromUser)</div>
             <div>
                 <a asp-action="Edit" asp-route-id="@item.Id" class="btn-custom-edit">Edit</a>
                 <a asp-action="Details" asp-route-id="@item.Id" class="btn-custom-details">Details</a>

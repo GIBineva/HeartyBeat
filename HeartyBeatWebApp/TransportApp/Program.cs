@@ -1,12 +1,13 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using HeartyBeatApp.Data;
+using HeartyBeat.Data;
 
 namespace HeartyBeatApp
 {
     public class Program
     {
-        public static void Main(string[] args)//---
+        public static async Task Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
 
@@ -18,8 +19,11 @@ namespace HeartyBeatApp
             });
             builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
-            builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-                .AddEntityFrameworkStores<ApplicationDbContext>();
+            builder.Services.AddIdentity<AppUser, IdentityRole>()
+             .AddEntityFrameworkStores<ApplicationDbContext>()
+             .AddDefaultUI()
+             .AddDefaultTokenProviders();
+
             builder.Services.AddControllersWithViews();
 
             builder.Services.AddSession(options =>
@@ -30,6 +34,13 @@ namespace HeartyBeatApp
             });
 
             var app = builder.Build();
+
+            using (var scope = app.Services.CreateScope())
+            {
+                var services = scope.ServiceProvider;
+
+                await DataSeed.SeedAsync(services);
+            }
 
             if (app.Environment.IsDevelopment())
             {

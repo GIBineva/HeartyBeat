@@ -1,9 +1,11 @@
-﻿namespace HeartyBeatApp.Models
+﻿using HeartyBeatApp.Data;
+
+namespace HeartyBeatApp.Models
 {
-    public class Reward
+    public class Reward: BaseEntity
+
     {
         public string Message { get; set; }
         public string ImageUrl { get; set; }
-        public bool Obtained { get; set; }
     }
 }

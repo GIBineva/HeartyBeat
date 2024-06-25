@@ -13,7 +13,7 @@ namespace HeartyBeat.Migrations
                 table: "HealthyTIpsPersonal");
 
             migrationBuilder.AddColumn<string>(
-                name: "username",
+                name: "Username",
                 table: "HealthyTIpsPersonal",
                 type: "nvarchar(max)",
                 nullable: false,
@@ -23,7 +23,7 @@ namespace HeartyBeat.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropColumn(
-                name: "username",
+                name: "Username",
                 table: "HealthyTIpsPersonal");
 
             migrationBuilder.AddColumn<string>(

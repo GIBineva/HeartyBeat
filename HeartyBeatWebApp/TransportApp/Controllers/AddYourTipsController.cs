@@ -63,7 +63,7 @@ namespace HeartyBeat.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("tipFromUser,username,Id")] AddYourTips addYourTips)
+        public async Task<IActionResult> Create([Bind("TipFromUser,Username,Id")] AddYourTips addYourTips)
         {
             if (ModelState.IsValid)
             {
@@ -96,7 +96,7 @@ namespace HeartyBeat.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("tipFromUser,username,Id")] AddYourTips addYourTips)
+        public async Task<IActionResult> Edit(int id, [Bind("TipFromUser,Username,Id")] AddYourTips addYourTips)
         {
             if (id != addYourTips.Id)
             {

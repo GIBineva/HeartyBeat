@@ -2,24 +2,30 @@
 using System.Collections.Generic;
 using System.Linq;
 using HeartyBeatApp.Models;
+using HeartyBeatApp.Data;
+using Microsoft.AspNetCore.Identity;
+using HeartyBeat.Data;
+using Microsoft.AspNetCore.Authorization;
 
 namespace HeartyBeatApp.Controllers
 {
+    [Authorize]
     public class CollectionController : Controller
     {
-        private static List<Reward> _rewards = new List<Reward>
+        private readonly ApplicationDbContext _context;
+        private readonly UserManager<AppUser> _userManager;
+        public CollectionController(ApplicationDbContext context, UserManager<AppUser> userManager)
         {
-                new Reward { Message = "Woahh you got .....", ImageUrl = "/images/HeartCat.jpg" },
-                new Reward { Message = "GASP what a surprise!!", ImageUrl = "/images/HeartCat.jpg" },
-                new Reward { Message = "You pulled: ", ImageUrl = "/images/HeartCat.jpg" },
-                new Reward { Message = "Oh em gi.. you pulled..", ImageUrl = "/images/HeartCat.jpg" },
-                new Reward { Message = "Look what you got!!", ImageUrl = "/images/HeartCat.jpg" },
-        };
+            _context = context;
+            _userManager = userManager;
+        }
 
-        public IActionResult Index()
+        public async Task<IActionResult> IndexAsync()
         {
-            var obtainedRewards = _rewards.Where(r => r.Obtained).ToList();
-            var notObtainedRewards = _rewards.Where(r => !r.Obtained).ToList();
+            var user = await _userManager.GetUserAsync(User);
+            var obtainedRewards = user.Obtained;
+            var obtainedIds = obtainedRewards.Select(item => item.Id).ToList();
+            var notObtainedRewards = _context.Reward.Where(item => !obtainedIds.Contains(item.Id));
 
             ViewBag.ObtainedRewards = obtainedRewards;
             ViewBag.NotObtainedRewards = notObtainedRewards;
@@ -28,12 +34,14 @@ namespace HeartyBeatApp.Controllers
         }
 
         [HttpPost]
-        public IActionResult UpdateRewardStatus([FromBody] Reward reward)
+        public async Task<IActionResult> UpdateRewardStatusAsync([FromBody] Reward reward)
         {
-            var existingReward = _rewards.FirstOrDefault(r => r.Message == reward.Message);
+            var existingReward = _context.Reward.FirstOrDefault(r => r.Message == reward.Message);
             if (existingReward != null)
             {
-                existingReward.Obtained = true;
+                var user = await _userManager.GetUserAsync(User);
+                user.Obtained.Add(existingReward);
+                _context.SaveChanges();
                 return Ok(); // Return Ok status if update is successful
             }
 
