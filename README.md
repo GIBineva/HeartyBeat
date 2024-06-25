@@ -18,7 +18,7 @@ HeartyBeat is an WebApp that can be used for tracking your heart rate. Look and 
 ### ╰┈➤ IDE and collaborative/hosting service and language tools used for the WebApp
 <p align = "left">
     <a href="https://visualstudio.microsoft.com/vs/"><img src="Logos/AppLogos/VS.png" alt="Visual Studio 2022" width=44px /></a>
-    <a href="https://github.com/"><img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub" width=44px /></a>
+    <a href="https://github.com/"><img src="Logos/AppLogos/github.png" alt="GitHub" width=44px /></a>
     <a href="https://learn.microsoft.com/en-us/dotnet/csharp/"><img src="Logos/AppLogos/cSHARP.png" alt="C#" width=44px /></a>
     <a href="https://developer.mozilla.org/en-US/docs/Web/HTML"><img src="Logos/AppLogos/HTML.png" alt="HTML" width=44px /></a>
     <a href="https://developer.mozilla.org/en-US/docs/Web/CSS"><img src="Logos/AppLogos/CSS.png" alt="CSS" width=44px /></a>
@@ -43,9 +43,11 @@ HeartyBeat is an WebApp that can be used for tracking your heart rate. Look and 
 
 <br>
 
-### ╰┈➤ Documentation 📃
+### ╰┈➤ Documentation and schemes 📃
 <p align = "left">
-    
+    <a href="https://www.microsoft.com/en-us/microsoft-365/powerpoint"><img src="Logos/AppLogos/PowerPoint.png" alt="PowerPoint" width=44px /></a>
+    <a href="https://www.microsoft.com/en-us/microsoft-365/word"><img src="Logos/AppLogos/Word.png" alt="Word" width=44px /></a>
+    <a href="https://www.lucidchart.com/"><img src="Logos/AppLogos/Lucid.png" alt="LucidChart" width=44px /></a>
 </p>
 
 <br>
