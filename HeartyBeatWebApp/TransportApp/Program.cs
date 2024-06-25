@@ -6,7 +6,7 @@ namespace HeartyBeatApp
 {
     public class Program
     {
-        public static void Main(string[] args)
+        public static void Main(string[] args)//---
         {
             var builder = WebApplication.CreateBuilder(args);
 
@@ -57,6 +57,12 @@ namespace HeartyBeatApp
             app.UseSession();
 
             app.Run();
+
+            app.MapControllerRoute(
+            name: "collection",
+            pattern: "Collection",
+            defaults: new { controller = "DailyChallenges", action = "CollectionIndex" });
+
         }
     }
 }

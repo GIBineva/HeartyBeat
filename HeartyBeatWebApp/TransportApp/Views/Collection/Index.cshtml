@@ -1,0 +1,121 @@
+﻿@{
+    ViewData["Title"] = "My Collection";
+    var obtainedRewards = ViewBag.ObtainedRewards as List<HeartyBeatApp.Models.Reward>;
+    var notObtainedRewards = ViewBag.NotObtainedRewards as List<HeartyBeatApp.Models.Reward>;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .rewards-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .reward-item {
+            background-color: #ffd9e7;
+            border: 3px solid #ddd;
+            border-radius: 10px;
+            padding: 15px;
+            width: 200px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+            .reward-item img {
+                max-width: 100%;
+                border-radius: 10px;
+            }
+
+            .reward-item p {
+                margin: 10px 0 0;
+                color: #333;
+            }
+
+        .obtained-title, .not-obtained-title {
+            margin-top: 40px;
+            color: #e194a7;
+        }
+    </style>
+</head>
+<body>
+    <h1>My Collection</h1>
+
+    <h2 class="obtained-title">Obtained Rewards</h2>
+    <div class="rewards-container">
+        @foreach (var reward in obtainedRewards)
+        {
+            <div class="reward-item">
+                <img src="@reward.ImageUrl" alt="Reward Image">
+                <p>@reward.Message</p>
+            </div>
+        }
+    </div>
+
+    <h2 class="not-obtained-title">Not Obtained Rewards</h2>
+    <div class="rewards-container">
+        @foreach (var reward in notObtainedRewards)
+        {
+            <div class="reward-item">
+                <img src="@reward.ImageUrl" alt="Reward Image" style="filter: grayscale(100%);">
+                <p>@reward.Message</p>
+                <button class="obtain-button" data-message="@reward.Message">Obtain</button>
+            </div>
+        }
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.obtain-button').click(function () {
+                var message = $(this).data('message');
+
+                // Submit the obtained reward via AJAX
+                $.ajax({
+                    url: '/Collection/UpdateRewardStatus',
+                    type: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify({ Message: message }),
+                    success: function () {
+                        Swal.fire({
+                            title: 'Reward Obtained!',
+                            text: 'Congratulations on obtaining the reward!',
+                            icon: 'success'
+                        }).then(function () {
+                            location.reload(); // Refresh page after obtaining reward
+                        });
+                    },
+                    error: function () {
+                        Swal.fire({
+                            title: 'Error',
+                            text: 'There was an error obtaining the reward. Please try again.',
+                            icon: 'error',
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

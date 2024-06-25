@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
+using System.Net.Http;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Hosting;
-
+using HeartyBeatApp.Models;
 
 namespace HeartyBeatApp.Controllers
 {
@@ -14,40 +15,40 @@ namespace HeartyBeatApp.Controllers
     {
         private readonly List<string> _challenges = new List<string>
         {
-            "Include fiber into your diet - Beans and Fruits and Oatmeal and Popcorn are foods full of fiber <3",
-            "Make time for breakfast - The first meal for the day than can lead to positivity throughout the day!",
-            "Eat fish - lowers blood pressure and help reduce the risk of a heart attack or stroke!!",
-            "Eat nuts - good sources of protein healthy fats fibres vitamins and minerals!!",
-            "Limit your salt intake - can cause high blood pressure!!",
-            "Reduce your saturated fat intake - too much saturated fat can cause cholesterol to build up in your arteries.",
-            "Drink tea - May improve blood pressure and has so much more benefits",
-            "Eat dark chocolate - as tasty as milk chocolate but times more healthy <3",
-            "Move your body throughout the day - WREK IT GIRL!!",
-            "Practice yoga - all you need is a yoga mat and a YouTube video",
-            "Try strength training - helps with stress and you can benefit from the results!!",
-            "Try interval training - burns calories and reduces blood pressure",
-            "Try dancing - fun way of working out!!",
-            "Go for a walk - a nice way to clear your mind from stress",
-            "Take the stairs - whoops the lift is suddenly broken.. wonder who did that...",
-            "Use housework as exercise - clean house and happy body <3",
-            "Be a kid - pfft who said this was for kids and enjoy your life!!",
-            "Engage in hobbies - a nice way to spend some me time",
-            "Laugh out loud - who cares if people hear you? There are 5 billion people on earth",
-            "Manage your stress - there are so many ways of that (breathing exercises and so much more)",
-            "Take the scenic route home - explore your hometown or go through your fave route!!"
+                "Include fiber into your diet - Beans and Fruits and Oatmeal and Popcorn are foods full of fiber <3",
+                "Make time for breakfast - The first meal for the day than can lead to positivity throughout the day!",
+                "Eat fish - lowers blood pressure and help reduce the risk of a heart attack or stroke!!",
+                "Eat nuts - good sources of protein healthy fats fibres vitamins and minerals!!",
+                "Limit your salt intake - can cause high blood pressure!!",
+                "Reduce your saturated fat intake - too much saturated fat can cause cholesterol to build up in your arteries.",
+                "Drink tea - May improve blood pressure and has so much more benefits",
+                "Eat dark chocolate - as tasty as milk chocolate but times more healthy <3",
+                "Move your body throughout the day - WREK IT GIRL!!",
+                "Practice yoga - all you need is a yoga mat and a YouTube video",
+                "Try strength training - helps with stress and you can benefit from the results!!",
+                "Try interval training - burns calories and reduces blood pressure",
+                "Try dancing - fun way of working out!!",
+                "Go for a walk - a nice way to clear your mind from stress",
+                "Take the stairs - whoops the lift is suddenly broken.. wonder who did that...",
+                "Use housework as exercise - clean house and happy body <3",
+                "Be a kid - pfft who said this was for kids and enjoy your life!!",
+                "Engage in hobbies - a nice way to spend some me time",
+                "Laugh out loud - who cares if people hear you? There are 5 billion people on earth",
+                "Manage your stress - there are so many ways of that (breathing exercises and so much more)",
+                "Take the scenic route home - explore your hometown or go through your fave route!!"
         };
 
-        private readonly List<(string Message, string ImageUrl)> _rewards;
+        private readonly List<Reward> _rewards;
 
-        public DailyChallengesController(IWebHostEnvironment webHostEnvironment)
+        public DailyChallengesController()
         {
-            _rewards = new List<(string Message, string ImageUrl)>
+            _rewards = new List<Reward>
             {
-                ("Great job! Keep up the good work!", "/images/HeartCat.jpg"), //cat gacha placeholder 1
-                ("You did it! Stay strong!", "/images/HeartCat.jpg"), //cat gacha placeholder 2
-                ("Fantastic effort! Keep going!", "/images/HeartCat.jpg"), //cat gacha placeholder 3 a
-                ("Awesome! You're doing great!", "/images/HeartCat.jpg"), //cat gacha placeholder 4
-                ("Excellent! Keep pushing forward!", "/images/HeartCat.jpg") //cat gacha placeholder 5
+                new Reward { Message = "Great job! Keep up the good work!", ImageUrl = "/images/HeartCat.jpg" },
+                new Reward { Message = "You did it! Stay strong!", ImageUrl = "/images/HeartCat.jpg" },
+                new Reward { Message = "aaaa! Stay strong!", ImageUrl = "/images/HeartCat.jpg" },
+                new Reward { Message = "aaaa! Stay strong!", ImageUrl = "/images/HeartCat.jpg" },
+                new Reward { Message = "aaaaaaaaaaaaa! Stay strong!", ImageUrl = "/images/HeartCat.jpg" },
             };
         }
 
@@ -96,6 +97,8 @@ namespace HeartyBeatApp.Controllers
             HttpContext.Session.SetString("RewardImageUrl", randomReward.ImageUrl);
             HttpContext.Session.SetString("RewardClaimed", "true");
 
+            InformCollectionControllerAboutReward(randomReward);
+
             return Json(new { success = true, message = randomReward.Message, imageUrl = Url.Content($"~{randomReward.ImageUrl}") });
         }
 
@@ -111,6 +114,14 @@ namespace HeartyBeatApp.Controllers
             }
 
             return Json(new { success = false });
+        }
+
+        private void InformCollectionControllerAboutReward(Reward reward)
+        {
+            var httpClient = new HttpClient();
+            var jsonReward = JsonConvert.SerializeObject(reward);
+            var content = new StringContent(jsonReward, Encoding.UTF8, "application/json");
+            httpClient.PostAsync("https://yourapiendpoint.com/api/Collection/UpdateRewardStatus", content);
         }
     }
 }
