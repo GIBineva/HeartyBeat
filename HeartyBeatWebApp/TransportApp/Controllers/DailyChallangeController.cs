@@ -44,11 +44,11 @@ namespace HeartyBeatApp.Controllers
         {
             _rewards = new List<Reward>
             {
-                new Reward { Message = "Great job! Keep up the good work!", ImageUrl = "/images/HeartCat.jpg" },
-                new Reward { Message = "You did it! Stay strong!", ImageUrl = "/images/HeartCat.jpg" },
-                new Reward { Message = "aaaa! Stay strong!", ImageUrl = "/images/HeartCat.jpg" },
-                new Reward { Message = "aaaa! Stay strong!", ImageUrl = "/images/HeartCat.jpg" },
-                new Reward { Message = "aaaaaaaaaaaaa! Stay strong!", ImageUrl = "/images/HeartCat.jpg" },
+                new Reward { Message = "Woahh you got .....", ImageUrl = "/images/HeartCat.jpg" },
+                new Reward { Message = "GASP what a surprise!!", ImageUrl = "/images/HeartCat.jpg" },
+                new Reward { Message = "You pulled: ", ImageUrl = "/images/HeartCat.jpg" },
+                new Reward { Message = "Oh em gi.. you pulled..", ImageUrl = "/images/HeartCat.jpg" },
+                new Reward { Message = "Look what you got!!", ImageUrl = "/images/HeartCat.jpg" },
             };
         }
 
