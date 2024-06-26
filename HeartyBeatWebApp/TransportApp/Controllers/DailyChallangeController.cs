@@ -8,6 +8,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json;
 using HeartyBeatApp.Models;
+using HeartyBeatApp.Data;
+using Microsoft.AspNetCore.Identity;
+using HeartyBeat.Data;
 
 namespace HeartyBeatApp.Controllers
 {
@@ -39,8 +42,10 @@ namespace HeartyBeatApp.Controllers
         };
 
         private readonly List<Reward> _rewards;
+        private readonly UserManager<AppUser> _userManager;
+        private readonly ApplicationDbContext _context;
 
-        public DailyChallengesController()
+        public DailyChallengesController(UserManager<AppUser> userManager, ApplicationDbContext context)
         {
             _rewards = new List<Reward>
             {
@@ -50,22 +55,25 @@ namespace HeartyBeatApp.Controllers
                 new Reward { Message = "Oh em gi.. you pulled..", ImageUrl = "/images/HeartCat.jpg" },
                 new Reward { Message = "Look what you got!!", ImageUrl = "/images/HeartCat.jpg" },
             };
+            _userManager = userManager;
+            _context = context;
         }
 
         public IActionResult Index()
         {
             var today = DateTime.UtcNow.Date;
-            var lastAccessDate = HttpContext.Session.GetString("LastAccessDate");
-            var dailyChallenges = HttpContext.Session.GetString("DailyChallenges");
-            var rewardClaimed = HttpContext.Session.GetString("RewardClaimed");
+            var user = _userManager.GetUserId(User);
+            var lastAccessDate = HttpContext.Session.GetString($"LastAccessDate_{user}");
+            var dailyChallenges = HttpContext.Session.GetString($"DailyChallenges_{user}");
+            var rewardClaimed = HttpContext.Session.GetString($"RewardClaimed_{user}");
 
             if (string.IsNullOrEmpty(lastAccessDate) || DateTime.Parse(lastAccessDate) < today)
             {
-                HttpContext.Session.SetString("LastAccessDate", today.ToString("yyyy-MM-dd"));
-                HttpContext.Session.Remove("DailyChallenges");
-                HttpContext.Session.Remove("RewardMessage");
-                HttpContext.Session.Remove("RewardImageUrl");
-                HttpContext.Session.Remove("RewardClaimed");
+                HttpContext.Session.SetString($"LastAccessDate_{user}", today.ToString("yyyy-MM-dd"));
+                HttpContext.Session.Remove($"DailyChallenges_{user}");
+                HttpContext.Session.Remove($"RewardMessage_{user}");
+                HttpContext.Session.Remove($"RewardImageUrl_{user}");
+                HttpContext.Session.Remove($"RewardClaimed_{user}");
 
                 dailyChallenges = null;
                 rewardClaimed = null;
@@ -74,7 +82,7 @@ namespace HeartyBeatApp.Controllers
             if (string.IsNullOrEmpty(dailyChallenges))
             {
                 var randomChallenges = _challenges.OrderBy(x => Guid.NewGuid()).Take(3).ToList();
-                HttpContext.Session.SetString("DailyChallenges", string.Join(",", randomChallenges));
+                HttpContext.Session.SetString($"DailyChallenges_{user}", string.Join(",", randomChallenges));
                 dailyChallenges = string.Join(",", randomChallenges);
             }
 
@@ -90,14 +98,15 @@ namespace HeartyBeatApp.Controllers
         }
 
         [HttpPost]
-        public IActionResult SaveProgress([FromBody] List<string> challenges)
+        public async Task<IActionResult> SaveProgress([FromBody] List<string> challenges)
         {
+            var user = _userManager.GetUserId(User);
             var randomReward = _rewards.OrderBy(x => Guid.NewGuid()).First();
-            HttpContext.Session.SetString("RewardMessage", randomReward.Message);
-            HttpContext.Session.SetString("RewardImageUrl", randomReward.ImageUrl);
-            HttpContext.Session.SetString("RewardClaimed", "true");
+            HttpContext.Session.SetString($"RewardMessage_{user}", randomReward.Message);
+            HttpContext.Session.SetString($"RewardImageUrl_{user}", randomReward.ImageUrl);
+            HttpContext.Session.SetString($"RewardClaimed_{user}", "true");
 
-            InformCollectionControllerAboutReward(randomReward);
+            await InformCollectionControllerAboutRewardAsync(randomReward);
 
             return Json(new { success = true, message = randomReward.Message, imageUrl = Url.Content($"~{randomReward.ImageUrl}") });
         }
@@ -105,23 +114,29 @@ namespace HeartyBeatApp.Controllers
         [HttpGet]
         public IActionResult GetReward()
         {
-            var rewardMessage = HttpContext.Session.GetString("RewardMessage");
-            var rewardImageUrl = HttpContext.Session.GetString("RewardImageUrl");
+            var user = _userManager.GetUserId(User);
+            var rewardMessage = HttpContext.Session.GetString($"RewardMessage_{user}");
+            var rewardImageUrl = HttpContext.Session.GetString($"RewardImageUrl_{user}");
 
             if (!string.IsNullOrEmpty(rewardMessage) && !string.IsNullOrEmpty(rewardImageUrl))
             {
+                HttpContext.Session.Remove($"RewardMessage_{user}");
+                HttpContext.Session.Remove($"RewardImageUrl_{user}");
                 return Json(new { success = true, message = rewardMessage, imageUrl = Url.Content($"~{rewardImageUrl}") });
             }
 
             return Json(new { success = false });
         }
 
-        private void InformCollectionControllerAboutReward(Reward reward)
+        private async Task InformCollectionControllerAboutRewardAsync(Reward reward)
         {
-            var httpClient = new HttpClient();
-            var jsonReward = JsonConvert.SerializeObject(reward);
-            var content = new StringContent(jsonReward, Encoding.UTF8, "application/json");
-            httpClient.PostAsync("https://yourapiendpoint.com/api/Collection/UpdateRewardStatus", content);
+            var existingReward = _context.Reward.FirstOrDefault(r => r.Message == reward.Message);
+            if (existingReward != null)
+            {
+                var user = await _userManager.GetUserAsync(User);
+                user.Obtained.Add(existingReward);
+                _context.SaveChanges();
+            }
         }
     }
 }

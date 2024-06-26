@@ -1,11 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using HeartyBeatApp.Models;
 using HeartyBeatApp.Data;
 using Microsoft.AspNetCore.Identity;
 using HeartyBeat.Data;
 using Microsoft.AspNetCore.Authorization;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
 
 namespace HeartyBeatApp.Controllers
 {
@@ -25,7 +26,7 @@ namespace HeartyBeatApp.Controllers
             var user = await _userManager.GetUserAsync(User);
             var obtainedRewards = user.Obtained;
             var obtainedIds = obtainedRewards.Select(item => item.Id).ToList();
-            var notObtainedRewards = _context.Reward.Where(item => !obtainedIds.Contains(item.Id));
+            var notObtainedRewards = _context.Reward.Where(item => !obtainedIds.Contains(item.Id)).ToList();
 
             ViewBag.ObtainedRewards = obtainedRewards;
             ViewBag.NotObtainedRewards = notObtainedRewards;
