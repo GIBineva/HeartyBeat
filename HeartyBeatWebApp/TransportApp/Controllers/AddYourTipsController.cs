@@ -17,9 +17,9 @@ namespace HeartyBeat.Controllers
     public class AddYourTipsController : Controller
     {
         private readonly ApplicationDbContext _context;
-        private readonly UserManager<IdentityUser> _userManager;
+        private readonly UserManager<AppUser> _userManager;
 
-        public AddYourTipsController(ApplicationDbContext context, UserManager<IdentityUser> userManager)
+        public AddYourTipsController(ApplicationDbContext context, UserManager<AppUser> userManager)
         {
             _context = context;
             _userManager = userManager;
