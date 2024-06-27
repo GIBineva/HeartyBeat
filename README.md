@@ -4,7 +4,7 @@
     <img src = "Logos/HearyBeatLogo.png" >
 </p>
 
-## 🛫 About
+## 💗 About
 <p align = "center">
 HeartyBeat is an WebApp that can be used for tracking your heart rate. Look and share your tips for more healthy live. Get and complete dailly missions and recieve costumes for your mascott Pulsey! Gotta collect them all !! <br>
 </p>
@@ -29,7 +29,7 @@ HeartyBeat is an WebApp that can be used for tracking your heart rate. Look and 
 
 ### ╰┈➤ Design and creating assets🎨🖌
 <p align = "left">
-    <a href="https://www.figma.com/"><img src="Logos/AppLogos/Figma.png" alt="Figma" width=44px /></a>
+    <a href="https://www.figma.com/"><img src="Logos/AppLogos/Figma.png" alt="Figma" width=30px /></a>
     <a href="https://krita.org/en/"><img src="Logos/AppLogos/Krita.png" alt="Krita" width=44px /></a>
 </p>
 
@@ -45,8 +45,8 @@ HeartyBeat is an WebApp that can be used for tracking your heart rate. Look and 
 
 ### ╰┈➤ Documentation and schemes 📃
 <p align = "left">
-    <a href="https://www.microsoft.com/en-us/microsoft-365/powerpoint"><img src="Logos/AppLogos/PowerPoint.png" alt="PowerPoint" width=44px /></a>
-    <a href="https://www.microsoft.com/en-us/microsoft-365/word"><img src="Logos/AppLogos/Word.png" alt="Word" width=44px /></a>
+    <a href="https://www.microsoft.com/en-us/microsoft-365/powerpoint"><img src="https://cdn.pixabay.com/photo/2021/01/30/12/18/powerpoint-5963677_1280.png" alt="PowerPoint" width=44px /></a>
+    <a href="https://www.microsoft.com/en-us/microsoft-365/word"><img src="https://cdn.pixabay.com/photo/2021/01/30/12/20/microsoft-word-5963679_1280.png" alt="Word" width=44px /></a>
     <a href="https://www.lucidchart.com/"><img src="Logos/AppLogos/Lucid.png" alt="LucidChart" width=44px /></a>
 </p>
 
