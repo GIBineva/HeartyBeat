@@ -29,6 +29,10 @@
       "PackagePath": "staticwebassets\\images\\HearyBeatLogo.png"
     },
     {
+      "Id": "C:\\Users\\user\\.githubProjects\\HeartyBeatProject\\HeartyBeatWebApp\\TransportApp\\wwwroot\\images\\HelloPulsey.jpg",
+      "PackagePath": "staticwebassets\\images\\HelloPulsey.jpg"
+    },
+    {
       "Id": "C:\\Users\\user\\.githubProjects\\HeartyBeatProject\\HeartyBeatWebApp\\TransportApp\\wwwroot\\images\\Munching.jpg",
       "PackagePath": "staticwebassets\\images\\Munching.jpg"
     },
@@ -51,6 +55,10 @@
     {
       "Id": "C:\\Users\\user\\.githubProjects\\HeartyBeatProject\\HeartyBeatWebApp\\TransportApp\\wwwroot\\images\\meow.png",
       "PackagePath": "staticwebassets\\images\\meow.png"
+    },
+    {
+      "Id": "C:\\Users\\user\\.githubProjects\\HeartyBeatProject\\HeartyBeatWebApp\\TransportApp\\wwwroot\\images\\nerd.jpg",
+      "PackagePath": "staticwebassets\\images\\nerd.jpg"
     },
     {
       "Id": "C:\\Users\\user\\.githubProjects\\HeartyBeatProject\\HeartyBeatWebApp\\TransportApp\\wwwroot\\images\\tweakin.jpg",

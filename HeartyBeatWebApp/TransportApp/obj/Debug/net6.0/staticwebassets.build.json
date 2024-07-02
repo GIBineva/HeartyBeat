@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "tWp8DkSuwVfySMdfgRKVdpzfg4EOUw7Fy+tlhv4DbjM=",
+  "Hash": "TmbpE/eooo95UJLEJhdZVquPa7Vn3yEVYOPcY/1oS6c=",
   "Source": "HeartyBeat",
   "BasePath": "_content/HeartyBeat",
   "Mode": "Default",
@@ -188,6 +188,25 @@
       "OriginalItemSpec": "wwwroot\\images\\HearyBeatLogo.png"
     },
     {
+      "Identity": "C:\\Users\\user\\.githubProjects\\HeartyBeatProject\\HeartyBeatWebApp\\TransportApp\\wwwroot\\images\\HelloPulsey.jpg",
+      "SourceId": "HeartyBeat",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\user\\.githubProjects\\HeartyBeatProject\\HeartyBeatWebApp\\TransportApp\\wwwroot\\",
+      "BasePath": "_content/HeartyBeat",
+      "RelativePath": "images/HelloPulsey.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\HelloPulsey.jpg"
+    },
+    {
       "Identity": "C:\\Users\\user\\.githubProjects\\HeartyBeatProject\\HeartyBeatWebApp\\TransportApp\\wwwroot\\images\\meow.png",
       "SourceId": "HeartyBeat",
       "SourceType": "Discovered",
@@ -224,6 +243,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\Munching.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\user\\.githubProjects\\HeartyBeatProject\\HeartyBeatWebApp\\TransportApp\\wwwroot\\images\\nerd.jpg",
+      "SourceId": "HeartyBeat",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\user\\.githubProjects\\HeartyBeatProject\\HeartyBeatWebApp\\TransportApp\\wwwroot\\",
+      "BasePath": "_content/HeartyBeat",
+      "RelativePath": "images/nerd.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\nerd.jpg"
     },
     {
       "Identity": "C:\\Users\\user\\.githubProjects\\HeartyBeatProject\\HeartyBeatWebApp\\TransportApp\\wwwroot\\images\\Realistic.jpg",
