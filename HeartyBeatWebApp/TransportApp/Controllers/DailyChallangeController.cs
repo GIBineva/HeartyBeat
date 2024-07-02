@@ -34,7 +34,7 @@ namespace HeartyBeatApp.Controllers
                 "Go for a walk - a nice way to clear your mind from stress",
                 "Take the stairs - whoops the lift is suddenly broken.. wonder who did that...",
                 "Use housework as exercise - clean house and happy body <3",
-                "Be a kid - pfft who said this was for kids and enjoy your life!!",
+                "Be a kid - pfft who said this was for kids?? Go enjoy your life!!",
                 "Engage in hobbies - a nice way to spend some me time",
                 "Laugh out loud - who cares if people hear you? There are 5 billion people on earth",
                 "Manage your stress - there are so many ways of that (breathing exercises and so much more)",
