@@ -13,12 +13,32 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
-      "Id": "C:\\Users\\user\\.githubProjects\\HeartyBeatProject\\HeartyBeatWebApp\\TransportApp\\wwwroot\\images\\HeartCat.jpg",
-      "PackagePath": "staticwebassets\\images\\HeartCat.jpg"
+      "Id": "C:\\Users\\user\\.githubProjects\\HeartyBeatProject\\HeartyBeatWebApp\\TransportApp\\wwwroot\\images\\Awkward.jpg",
+      "PackagePath": "staticwebassets\\images\\Awkward.jpg"
     },
     {
       "Id": "C:\\Users\\user\\.githubProjects\\HeartyBeatProject\\HeartyBeatWebApp\\TransportApp\\wwwroot\\images\\HearyBeatLogo.png",
       "PackagePath": "staticwebassets\\images\\HearyBeatLogo.png"
+    },
+    {
+      "Id": "C:\\Users\\user\\.githubProjects\\HeartyBeatProject\\HeartyBeatWebApp\\TransportApp\\wwwroot\\images\\Realistic.jpg",
+      "PackagePath": "staticwebassets\\images\\Realistic.jpg"
+    },
+    {
+      "Id": "C:\\Users\\user\\.githubProjects\\HeartyBeatProject\\HeartyBeatWebApp\\TransportApp\\wwwroot\\images\\Smirk.jpg",
+      "PackagePath": "staticwebassets\\images\\Smirk.jpg"
+    },
+    {
+      "Id": "C:\\Users\\user\\.githubProjects\\HeartyBeatProject\\HeartyBeatWebApp\\TransportApp\\wwwroot\\images\\gigachad.jpg",
+      "PackagePath": "staticwebassets\\images\\gigachad.jpg"
+    },
+    {
+      "Id": "C:\\Users\\user\\.githubProjects\\HeartyBeatProject\\HeartyBeatWebApp\\TransportApp\\wwwroot\\images\\meow.png",
+      "PackagePath": "staticwebassets\\images\\meow.png"
+    },
+    {
+      "Id": "C:\\Users\\user\\.githubProjects\\HeartyBeatProject\\HeartyBeatWebApp\\TransportApp\\wwwroot\\images\\tweakin.jpg",
+      "PackagePath": "staticwebassets\\images\\tweakin.jpg"
     },
     {
       "Id": "C:\\Users\\user\\.githubProjects\\HeartyBeatProject\\HeartyBeatWebApp\\TransportApp\\wwwroot\\js\\JavaScript.js",

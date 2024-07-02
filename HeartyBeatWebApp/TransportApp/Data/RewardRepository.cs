@@ -8,11 +8,12 @@ namespace HeartyBeatApp.Repositories
     {
         private List<Reward> rewards = new List<Reward>
         {
-            new Reward { Message = "Great job! Keep up the good work!", ImageUrl = "/images/HeartCat1.jpg"},
-            new Reward { Message = "You did it! Stay strong!", ImageUrl = "/images/HeartCat2.jpg"},
-            new Reward { Message = "Fantastic effort! Keep going!", ImageUrl = "/images/HeartCat3.jpg"},
-            new Reward { Message = "Awesome! You're doing great!", ImageUrl = "/images/HeartCat4.jpg"},
-            new Reward { Message = "Excellent! Keep pushing forward!", ImageUrl = "/images/HeartCat5.jpg"}
+                new Reward { Message = "Smirk smirk.. Looks like you got:", ImageUrl = "/images/Smirk.jpg" },
+                new Reward { Message = "Nothing to say just :3", ImageUrl = "/images/meow.jpg" },
+                new Reward { Message = "Uhh.. this is a little awkward", ImageUrl = "/images/Awkward.jpg" },
+                new Reward { Message = "*twaek twaek*", ImageUrl = "/images/tweakin.jpg" },
+                new Reward { Message = "Look at that pretty face you pulled:", ImageUrl = "/images/Realistic.jpg" },
+                new Reward { Message = "Did you pull it or did it pull you?", ImageUrl = "/images/gigachad.jpg" },
         };
 
         public List<Reward> GetAllRewards()
