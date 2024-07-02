@@ -29,12 +29,20 @@
       "PackagePath": "staticwebassets\\images\\HearyBeatLogo.png"
     },
     {
+      "Id": "C:\\Users\\user\\.githubProjects\\HeartyBeatProject\\HeartyBeatWebApp\\TransportApp\\wwwroot\\images\\Munching.jpg",
+      "PackagePath": "staticwebassets\\images\\Munching.jpg"
+    },
+    {
       "Id": "C:\\Users\\user\\.githubProjects\\HeartyBeatProject\\HeartyBeatWebApp\\TransportApp\\wwwroot\\images\\Realistic.jpg",
       "PackagePath": "staticwebassets\\images\\Realistic.jpg"
     },
     {
       "Id": "C:\\Users\\user\\.githubProjects\\HeartyBeatProject\\HeartyBeatWebApp\\TransportApp\\wwwroot\\images\\Smirk.jpg",
       "PackagePath": "staticwebassets\\images\\Smirk.jpg"
+    },
+    {
+      "Id": "C:\\Users\\user\\.githubProjects\\HeartyBeatProject\\HeartyBeatWebApp\\TransportApp\\wwwroot\\images\\Warm.jpg",
+      "PackagePath": "staticwebassets\\images\\Warm.jpg"
     },
     {
       "Id": "C:\\Users\\user\\.githubProjects\\HeartyBeatProject\\HeartyBeatWebApp\\TransportApp\\wwwroot\\images\\gigachad.jpg",

@@ -16,6 +16,8 @@ namespace HeartyBeatApp.Repositories
                 new Reward { Message = "Did you pull it or did it pull you?", ImageUrl = "/images/gigachad.jpg" },
                 new Reward { Message = "*pew pew*", ImageUrl = "/images/Gangster.jpg" },
                 new Reward { Message = "There is a new cat in town", ImageUrl = "/images/Cowboy.jpg" },
+                new Reward { Message = "nom nom nom nom", ImageUrl = "/images/Munching.jpg" },
+                new Reward { Message = "Remember it's always important to relax!", ImageUrl = "/images/Warm.jpg" },
         };
 
         public List<Reward> GetAllRewards()
