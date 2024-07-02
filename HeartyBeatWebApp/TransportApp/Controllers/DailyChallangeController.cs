@@ -55,6 +55,8 @@ namespace HeartyBeatApp.Controllers
                 new Reward { Message = "*twaek twaek*", ImageUrl = "/images/tweakin.jpg" },
                 new Reward { Message = "Look at that pretty face you pulled:", ImageUrl = "/images/Realistic.jpg" },
                 new Reward { Message = "Did you pull it or did it pull you?", ImageUrl = "/images/gigachad.jpg" },
+                new Reward { Message = "*pew pew*", ImageUrl = "/images/Gangster.jpg" },
+                new Reward { Message = "There is a new cat in town", ImageUrl = "/images/Cowboy.jpg" },
             };
             _userManager = userManager;
             _context = context;

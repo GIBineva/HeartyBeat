@@ -16,7 +16,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("HeartyBeat")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+72d4018b404ee7f1d0ac5089cfb9c38ff563d923")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bafd8ed54cf689a0f6a46a0f6a617120835bd889")]
 [assembly: System.Reflection.AssemblyProductAttribute("HeartyBeat")]
 [assembly: System.Reflection.AssemblyTitleAttribute("HeartyBeat")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

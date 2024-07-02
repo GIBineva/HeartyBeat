@@ -17,6 +17,14 @@
       "PackagePath": "staticwebassets\\images\\Awkward.jpg"
     },
     {
+      "Id": "C:\\Users\\user\\.githubProjects\\HeartyBeatProject\\HeartyBeatWebApp\\TransportApp\\wwwroot\\images\\Cowboy.jpg",
+      "PackagePath": "staticwebassets\\images\\Cowboy.jpg"
+    },
+    {
+      "Id": "C:\\Users\\user\\.githubProjects\\HeartyBeatProject\\HeartyBeatWebApp\\TransportApp\\wwwroot\\images\\Gangster.jpg",
+      "PackagePath": "staticwebassets\\images\\Gangster.jpg"
+    },
+    {
       "Id": "C:\\Users\\user\\.githubProjects\\HeartyBeatProject\\HeartyBeatWebApp\\TransportApp\\wwwroot\\images\\HearyBeatLogo.png",
       "PackagePath": "staticwebassets\\images\\HearyBeatLogo.png"
     },
